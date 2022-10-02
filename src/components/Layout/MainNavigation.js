@@ -9,6 +9,10 @@ const MainNavigation = () => {
 
   const isLoggedIn = authCtx.isLoggedIn;
 
+  const logoutHandler = () => {
+    authCtx.logout(); // by this we are not redirecting our pages so for that we going to learn protecting frontend pages
+  };
+
   return (
     <header className={classes.header}>
       <Link to="/">
@@ -30,7 +34,8 @@ const MainNavigation = () => {
 
           {isLoggedIn && (
             <li>
-              <button>Logout</button>
+              <button onSubmit={logoutHandler}>Logout</button>{" "}
+              {/*For logout we dont really need to send any request bcs firebase dont store or care whether person is logged in or not, we just have to change the state, We just have to make sure that in pur context api , we clear our token, We set it back to an empty string or to null*/}
             </li>
           )}
         </ul>
