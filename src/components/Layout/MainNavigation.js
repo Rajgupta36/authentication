@@ -34,7 +34,7 @@ const MainNavigation = () => {
 
           {isLoggedIn && (
             <li>
-              <button onSubmit={logoutHandler}>Logout</button>{" "}
+              <button onClick={logoutHandler}>Logout</button>{" "}
               {/*For logout we dont really need to send any request bcs firebase dont store or care whether person is logged in or not, we just have to change the state, We just have to make sure that in pur context api , we clear our token, We set it back to an empty string or to null*/}
             </li>
           )}
